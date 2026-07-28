@@ -18,11 +18,6 @@ CLAUDE.md
 .env.*
 !.env.example
 
-# Env files (keep .env.example tracked)
-.env
-.env.*
-!.env.example
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
