@@ -1,4 +1,5 @@
 import { Award, Globe, Headphones, Shield, Timer, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -42,38 +43,41 @@ const data = [
 function WhyChoseUs() {
   return (
     <div className="py-10 space-y-8">
-      <div className="flex flex-col items-center w-150 mx-auto text-center p-4 space-y-2">
-        <h2 className="text-3xl font-semibold">Why Chose Us</h2>
-        <p className="text-neutral-500">
+      <div className="flex flex-col items-center w-full max-w-150 mx-auto text-center p-4 space-y-2">
+        <h2 className="text-3xl font-semibold">Why Choose Us</h2>
+        <p className="text-neutral-500 dark:text-neutral-400">
           We're more than just consultants, we're your partners in building a
           successful international education journey
         </p>
       </div>
       {/* card  */}
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {data.map((d) => (
           <div
             key={d.id}
-            className="group p-4 border hover:border-[#e9a227] shadow-lg border-neutral-300 rounded-md space-y-2"
+            className="lift group p-4 border hover:border-[#F15A22] shadow-lg border-neutral-300 dark:border-neutral-700 rounded-md space-y-2"
           >
-            <div className="group-hover:bg-[#e9a227] bg-[#e9a227]/20 h-12 w-12 flex justify-center items-center rounded-md">
+            <div className="group-hover:bg-[#F15A22] group-hover:scale-110 transition-transform bg-[#F15A22]/20 h-12 w-12 flex justify-center items-center rounded-md">
               {d.icon}
             </div>
             <h3 className="text-lg font-semibold">{d.heading}</h3>
-            <p className="text-neutral-500">{d.info}</p>
+            <p className="text-neutral-500 dark:text-neutral-400">{d.info}</p>
           </div>
         ))}
       </div>
 
       <div className="flex flex-col items-center justify-center  gap-4 py-10">
-        <p className="text-neutral-500">
+        <p className="text-neutral-500 dark:text-neutral-400">
           Join thousands of students who've successfully started their
           international education journey with us
         </p>
 
-        <button className="px-4 p-1 rounded-md bg-[#e9a227]">
+        <Link
+          to="/contact#book-consultation"
+          className="px-4 p-2 rounded-md text-white font-semibold bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5"
+        >
           Book Your Consultation Today
-        </button>
+        </Link>
       </div>
     </div>
   );

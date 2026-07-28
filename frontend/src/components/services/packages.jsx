@@ -1,5 +1,4 @@
 import { BadgeCheck } from "lucide-react";
-import { useState } from "react";
 import Title from "../title";
 
 const packages = [
@@ -53,8 +52,6 @@ const packages = [
 ];
 
 function Packages() {
-  const [isScale, setIsScale] = useState(null);
-
   return (
     <div className="lg:space-y-20 py-10">
       <Title
@@ -64,14 +61,14 @@ function Packages() {
           " A proven 6-step process that has helped thousands achieve their dreams"
         }
       />
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {packages.map((pac, index) => (
           <div
             key={index}
-            className={`${index === 1 ? "border-[#e9a227] scale-110" : "border-neutral-200"} relative p-4 py-10 border hover:shadow-lg rounded-lg space-y-4 bg-white`}
+            className={`${index === 1 ? "border-[#F15A22] lg:scale-110" : "border-neutral-200 dark:border-neutral-800"} relative p-4 py-10 border hover:shadow-lg rounded-lg space-y-4 bg-white dark:bg-neutral-900`}
           >
             {index === 1 ? (
-              <div className="absolute -top-3 bg-[#e9a227] text-white px-3 p-1 rounded-full left-1/2 -translate-x-1/2 text-sm">
+              <div className="absolute -top-3 bg-[#F15A22] text-white px-3 p-1 rounded-full left-1/2 -translate-x-1/2 text-sm">
                 Most Popular
               </div>
             ) : (
@@ -80,17 +77,17 @@ function Packages() {
             <div className="text-center">
               <h4 className="text-lg font-bold">{pac.name}</h4>
               <p className="text-2xl font-bold">{pac.price}</p>
-              <p className="text-neutral-500">{pac.description}</p>
+              <p className="text-neutral-500 dark:text-neutral-400">{pac.description}</p>
             </div>
-            <div className="text-neutral-500">
+            <div className="text-neutral-500 dark:text-neutral-400">
               {pac.features.map((fea, index) => (
                 <p key={index} className="flex gap-2 items-center">
-                  <BadgeCheck color="#e9a227" size={18} />
+                  <BadgeCheck color="#F15A22" size={18} />
                   {fea}
                 </p>
               ))}
             </div>
-            <button className="p-2 w-full text-white bg-[#e9a227] rounded-lg">
+            <button className="p-2 w-full text-white bg-[#F15A22] rounded-lg">
               {pac.cta}
             </button>
           </div>

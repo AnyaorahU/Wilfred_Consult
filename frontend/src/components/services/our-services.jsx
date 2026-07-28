@@ -14,7 +14,7 @@ import { useState } from "react";
 const services = [
   {
     id: 1,
-    icon: <GraduationCap color="#e9a227" />,
+    icon: <GraduationCap color="#F15A22" />,
     heading: "Study Abroad Consulting",
     subHeading: "Expert guidance for your international education journey",
     price: "299",
@@ -38,7 +38,7 @@ const services = [
   },
   {
     id: 2,
-    icon: <Plane color="#e9a227" />,
+    icon: <Plane color="#F15A22" />,
     heading: "Educational Tours",
     subHeading: "Immersive learning experiences worldwide",
     price: "2,500",
@@ -62,7 +62,7 @@ const services = [
   },
   {
     id: 3,
-    icon: <FileCheck color="#e9a227" />,
+    icon: <FileCheck color="#F15A22" />,
     heading: "Application Assistance",
     subHeading: "Streamlined application process for guaranteed success",
     price: "199",
@@ -86,7 +86,7 @@ const services = [
   },
   {
     id: 4,
-    icon: <UserCheck color="#e9a227" />,
+    icon: <UserCheck color="#F15A22" />,
     heading: "Visa Support Services",
     subHeading: "Expert visa guidance with 100% approval track record",
     price: "399",
@@ -110,7 +110,7 @@ const services = [
   },
   {
     id: 5,
-    icon: <House color="#e9a227" />,
+    icon: <House color="#F15A22" />,
     heading: "Accommodation Services",
     subHeading: "Safe and comfortable housing solutions",
     price: "199",
@@ -134,7 +134,7 @@ const services = [
   },
   {
     id: 6,
-    icon: <Headset color="#e9a227" />,
+    icon: <Headset color="#F15A22" />,
     heading: "24/7 Student Support",
     subHeading: "Round-the-clock assistance wherever you are",
     price: "199",
@@ -167,11 +167,11 @@ function OurServices() {
 
   return (
     <div className="lg:space-y-20">
-      <div className="text-center space-y-2 w-175 mx-auto">
+      <div className="text-center space-y-2 w-full max-w-175 mx-auto">
         <h3 className="text-3xl font-semibold">
-          Our <span className="text-[#e9a227]">Complete Service Suite</span>
+          Our <span className="text-[#F15A22]">Complete Service Suite</span>
         </h3>
-        <p className="text-neutral-500">
+        <p className="text-neutral-500 dark:text-neutral-400">
           Every service is designed with your success in mind, backed by years
           of expertise and proven results
         </p>
@@ -180,25 +180,25 @@ function OurServices() {
         {services.map((d) => (
           <div
             key={d.id}
-            className="border border-neutral-200 rounded-2xl p-4 space-y-4 bg-white hover:shadow-lg"
+            className="lift border border-neutral-200 dark:border-neutral-800 rounded-2xl p-4 space-y-4 bg-white dark:bg-neutral-900 hover:shadow-lg hover:border-[#F15A22]/40"
           >
             <div className="flex justify-between">
               <div className="flex gap-2">
-                <div className="h-10 w-10 bg-[#e9a227]/5 rounded-md flex justify-center items-center">
+                <div className="h-10 w-10 bg-[#F15A22]/5 rounded-md flex justify-center items-center">
                   {d.icon}
                 </div>
                 <div>
                   <h4 className="font-semibold">{d.heading}</h4>
-                  <p className="text-sm text-neutral-500">{d.subHeading}</p>
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400">{d.subHeading}</p>
                 </div>
               </div>
-              <div>#{d.price}</div>
+              <div className="font-semibold">${d.price}</div>
             </div>
-            <p className="text-neutral-600">{d.detail}</p>
-            <div className="flex flex-col space-y-2 text-neutral-500">
+            <p className="text-neutral-600 dark:text-neutral-300">{d.detail}</p>
+            <div className="flex flex-col space-y-2 text-neutral-500 dark:text-neutral-400">
               {d.completeFeatures.slice(0, 4).map((fea, index) => (
                 <ul key={index} className="flex gap-2 items-center">
-                  <BadgeCheck size={18} color="#e9a227" />
+                  <BadgeCheck size={18} color="#F15A22" />
                   <li>{fea}</li>
                 </ul>
               ))}
@@ -206,13 +206,13 @@ function OurServices() {
 
             <button
               onClick={() => toggleItem(d.id)}
-              className="text-[#e9a227] flex gap-2 items-center"
+              className="text-[#F15A22] flex gap-2 items-center"
             >
               {isExpanded === d.id ? "Show Less" : "Show More"}
               {isExpanded === d.id ? (
-                <ChevronUp color="#e9a227" size={18} />
+                <ChevronUp color="#F15A22" size={18} />
               ) : (
-                <ChevronDown color="#e9a227" size={18} />
+                <ChevronDown color="#F15A22" size={18} />
               )}
             </button>
 
@@ -221,22 +221,22 @@ function OurServices() {
                 <div className="space-y-2">
                   <p className="font-semibold">Complete Features</p>
 
-                  <div className="text-neutral-500 grid grid-cols-2 space-y-2">
+                  <div className="text-neutral-500 dark:text-neutral-400 grid grid-cols-1 sm:grid-cols-2 space-y-2">
                     {d.completeFeatures.map((fea, index) => (
                       <ul key={index} className="flex gap-2 items-center">
-                        <BadgeCheck size={18} color="#e9a227" />
+                        <BadgeCheck size={18} color="#F15A22" />
                         <li>{fea}</li>
                       </ul>
                     ))}
                   </div>
                 </div>
-                <div className="space-y-2 bg-neutral-100 p-4 rounded-lg">
+                <div className="space-y-2 bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg">
                   <p className="font-semibold">Our Process</p>
 
-                  <div className="text-neutral-900">
+                  <div className="text-neutral-900 dark:text-neutral-100">
                     {d.ourPurpose.map((pur, index) => (
                       <ul key={index} className="flex gap-2 space-y-2">
-                        <div className="h-6 w-6 flex justify-center items-center text-xs bg-[#e9a227] rounded-full text-white font-semibold">
+                        <div className="h-6 w-6 flex justify-center items-center text-xs bg-[#F15A22] rounded-full text-white font-semibold">
                           {index + 1}
                         </div>
                         <li>{pur}</li>
@@ -244,7 +244,7 @@ function OurServices() {
                     ))}
                   </div>
                 </div>
-                <button className="bg-[#e9a227] w-full p-2 text-center rounded-lg">
+                <button className="bg-[#F15A22] w-full p-2 text-center rounded-lg">
                   Get Started with {d.heading}
                 </button>
               </div>

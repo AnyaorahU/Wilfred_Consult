@@ -50,21 +50,21 @@ function ProcessSteps() {
           "A proven 6-step process that has helped thousands achieve their dreams"
         }
       />
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {processSteps.map((pro, index) => (
           <div
             key={index}
-            className="border p-4 flex gap-4 rounded-lg border-neutral-300 hover:shadow-lg"
+            className="lift border p-4 flex gap-4 rounded-lg border-neutral-300 dark:border-neutral-700 hover:shadow-lg hover:border-[#F15A22]"
           >
-            <div className="text-5xl font-bold text-[#e9a227]/30">
+            <div className="text-5xl font-bold text-[#F15A22]/30">
               0{index + 1}
             </div>
             <div className="space-y-2">
               <h4 className="text-lg font-semibold">{pro.heading}</h4>
-              <p className="text-neutral-500 flex gap-2 items-center">
+              <p className="text-neutral-500 dark:text-neutral-400 flex gap-2 items-center">
                 <Clock color="gray" size={16} /> {pro.time}
               </p>
-              <p className="text-neutral-500">{pro.content}</p>
+              <p className="text-neutral-500 dark:text-neutral-400">{pro.content}</p>
             </div>
           </div>
         ))}

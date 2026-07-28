@@ -4,18 +4,28 @@ import HeroInfo from "../components/home/homeinfo";
 import Services from "../components/home/services";
 import Testimonial from "../components/home/testimonial";
 import WhyChoseUs from "../components/home/why-chose-us";
-import Navbar from "../components/navbar";
+import Reveal from "../components/reveal";
 
 function Home() {
   return (
-    <div className="bg-[#f5f5f5]">
+    <div className="bg-[#f5f5f5] dark:bg-neutral-950">
       <Hero />
-      <div className="w-300 mx-auto space-y-20 py-10">
-        <Services />
-        <WhyChoseUs />
-        <Destinations />
-        <Testimonial />
-        <HeroInfo />
+      <div className="w-full max-w-300 mx-auto px-4 space-y-20 py-10">
+        <Reveal>
+          <Services />
+        </Reveal>
+        <Reveal>
+          <WhyChoseUs />
+        </Reveal>
+        <Reveal>
+          <Destinations />
+        </Reveal>
+        <Reveal>
+          <Testimonial />
+        </Reveal>
+        <Reveal>
+          <HeroInfo />
+        </Reveal>
       </div>
     </div>
   );

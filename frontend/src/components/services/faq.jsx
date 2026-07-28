@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Title from "../title";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "What makes EduVoyage different from other consultants?",
+    question: "What makes Wilfred Consult different from other consultants?",
     answer:
       "We combine 15+ years of expertise with direct partnerships with 50+ universities, offering exclusive scholarship access and fast-track admissions. Our 100% success rate and personalized approach ensure every student gets into their dream university.",
   },
@@ -51,25 +51,34 @@ function Faq() {
         }
       />
 
-      <div className="space-y-8">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="border border-neutral-300 rounded-lg p-4 space-y-8 bg-white hover:shadow-lg"
-          >
-            <button
-              onClick={() => toggleItem(index)}
-              className="flex justify-between w-full"
+      <div className="max-w-3xl mx-auto space-y-4">
+        {faqs.map((faq, index) => {
+          const isOpen = isExpand === index;
+          return (
+            <div
+              key={index}
+              className="border border-neutral-200 dark:border-neutral-800 rounded-2xl bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-shadow"
             >
-              <p>{faq.question}</p>
-              {isExpand === index ? <ChevronUp /> : <ChevronDown />}
-            </button>
-
-            {isExpand === index && (
-              <p className="text-neutral-500">{faq.answer}</p>
-            )}
-          </div>
-        ))}
+              <button
+                type="button"
+                onClick={() => toggleItem(index)}
+                aria-expanded={isOpen}
+                className="w-full flex items-center justify-between gap-4 text-left p-5 font-semibold cursor-pointer"
+              >
+                <span>{faq.question}</span>
+                <ChevronDown
+                  size={20}
+                  className={`shrink-0 text-[#F15A22] transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {isOpen && (
+                <p className="px-5 pb-5 -mt-1 text-neutral-500 dark:text-neutral-400">{faq.answer}</p>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

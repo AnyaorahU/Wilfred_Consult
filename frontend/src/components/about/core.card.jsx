@@ -41,15 +41,15 @@ export function CoreCard() {
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {values.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col items-start space-y-4 p-4 border border-neutral-300 shadow-lg rounded-2xl"
+          className="lift flex flex-col items-start space-y-4 p-4 border border-neutral-300 dark:border-neutral-700 shadow-lg rounded-2xl hover:border-[#F15A22]"
         >
-          <div className="p-4 bg-[#e9a227]/20 rounded-2xl">{item.icon}</div>
+          <div className="p-4 bg-[#F15A22]/20 rounded-2xl">{item.icon}</div>
           <h4 className="text-2xl font-bold">{item.heading}</h4>
-          <p className="text-neutral-500">{item.context}</p>
+          <p className="text-neutral-500 dark:text-neutral-400">{item.context}</p>
         </div>
       ))}
     </div>

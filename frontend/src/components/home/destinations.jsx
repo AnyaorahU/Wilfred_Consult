@@ -1,4 +1,6 @@
-import { ArrowRight, Scale, Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { destinations } from "../../data/destinations";
 
 const data = [
   {
@@ -11,7 +13,7 @@ const data = [
     course: "Technology, Medicine, MBA",
   },
   {
-    id: 1,
+    id: 2,
     categories: "Popular",
     image: "/unitedkingdom.jpg",
     country: "United Kingdom",
@@ -20,7 +22,7 @@ const data = [
     course: "Business, Engineering, Arts",
   },
   {
-    id: 1,
+    id: 3,
     categories: "Affordable",
     image: "/canada.jpg",
     country: "Canada",
@@ -32,42 +34,42 @@ const data = [
 
 function Destinations() {
   return (
-    <div className="py-10 border-r-2 border-t-2 border-l-2 rounded-4xl border-[#e9a227] lg:p-14 space-y-8">
-      <div className="flex flex-col items-center w-150 mx-auto text-center p-4 space-y-2">
-        <div className="px-2 rounded-full bg-[#e9a227]/10 text-[#e9a227]">
+    <div className="py-10 px-4 border-r-2 border-t-2 border-l-2 rounded-4xl border-[#F15A22] lg:p-14 space-y-8">
+      <div className="flex flex-col items-center w-full max-w-150 mx-auto text-center p-4 space-y-2">
+        <div className="px-2 rounded-full bg-[#F15A22]/10 text-[#F15A22]">
           Top Destinations
         </div>
         <h2 className="text-3xl font-semibold">
           Discover Your Dream Destination
         </h2>
-        <p className="text-neutral-500">
+        <p className="text-neutral-500 dark:text-neutral-400">
           Explore world-class education opportunities across the globe with our
           carefully selected partner institutions.
         </p>
       </div>
 
       {/* card  */}
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {data.map((d) => (
           <div
             key={d.id}
-            className={`relative h-100 border border-neutral-300 rounded-2xl bg-cover bg-center shadow-lg hover:border-[#e9a227]`}
+            className={`lift relative h-100 border border-neutral-300 dark:border-neutral-700 rounded-2xl bg-cover bg-center shadow-lg hover:border-[#F15A22]`}
             style={{ backgroundImage: `url(${d.image})` }}
           >
-            <div className="absolute right-3 top-2 bg-[#e9a227] text-xs text-white px-3 rounded-full">
+            <div className="absolute right-3 top-2 bg-[#F15A22] text-xs text-white px-3 rounded-full">
               {d.categories}
             </div>
-            <div className="absolute h-1/2 flex flex-col justify-center bottom-0 left-0 w-full p-4 rounded-b-2xl space-y-2 bg-white">
+            <div className="absolute h-1/2 flex flex-col justify-center bottom-0 left-0 w-full p-4 rounded-b-2xl space-y-2 bg-white dark:bg-neutral-900">
               <div className="flex justify-between">
                 <h3 className="text-2xl font-semibold">{d.country}</h3>
                 <div className="flex gap-2 items-center">
-                  <Star size={18} color="#e9a227" />
+                  <Star size={18} color="#F15A22" />
                   <p>{d.rating}</p>
                 </div>
               </div>
-              <p className="text-neutral-500">{d.university} Universities</p>
-              <p className="text-neutral-500">{d.course}</p>
-              <button className="border w-full p-1 flex gap-2 items-center justify-center border-[#e9a227]/50 rounded-md hover:bg-[#e9a227]">
+              <p className="text-neutral-500 dark:text-neutral-400">{d.university} Universities</p>
+              <p className="text-neutral-500 dark:text-neutral-400">{d.course}</p>
+              <button className="border w-full p-1 flex gap-2 items-center justify-center border-[#F15A22]/50 rounded-md hover:bg-[#F15A22]">
                 Learn more <ArrowRight size={18} />
               </button>
             </div>
@@ -76,30 +78,21 @@ function Destinations() {
       </div>
 
       <div className="py-4">
-        <h4 className="text-xl text-[#e9a227] font-semibold text-center underline text-shadow-2xs">
+        <h4 className="text-xl text-[#F15A22] font-semibold text-center underline text-shadow-2xs">
           Other Countries
         </h4>
       </div>
 
-      <div className=" flex justify-center gap-8">
-        <button className="border border-[#e9a227] rounded-md p-2">
-          Country and Flag
-        </button>
-        <button className="border border-[#e9a227] rounded-md p-2">
-          Country and Flag
-        </button>
-        <button className="border border-[#e9a227] rounded-md p-2">
-          Country and Flag
-        </button>
-        <button className="border border-[#e9a227] rounded-md p-2">
-          Country and Flag
-        </button>
-        <button className="border border-[#e9a227] rounded-md p-2">
-          Country and Flag
-        </button>
-        <button className="border border-[#e9a227] rounded-md p-2">
-          Country and Flag
-        </button>
+      <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
+        {destinations.map((d) => (
+          <Link
+            key={d.slug}
+            to={`/destinations/${d.slug}`}
+            className="flex items-center gap-2 border border-[#F15A22] rounded-md p-2 px-4 hover:bg-[#F15A22] hover:text-white transition-colors"
+          >
+            <span className="text-lg">{d.flag}</span> {d.name}
+          </Link>
+        ))}
       </div>
     </div>
   );

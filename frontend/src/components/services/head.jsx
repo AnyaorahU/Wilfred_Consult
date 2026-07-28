@@ -9,23 +9,23 @@ import {
 import { Link } from "react-router-dom";
 
 const data = [
-  { id: 1, name: "Countries", icon: <Globe color="#e9a227" />, count: "25+" },
+  { id: 1, name: "Countries", icon: <Globe color="#F15A22" />, count: "25+" },
   {
     id: 2,
     name: "Universities",
-    icon: <GraduationCap color="#e9a227" />,
+    icon: <GraduationCap color="#F15A22" />,
     count: "50+",
   },
   {
     id: 3,
     name: "Success Rate",
-    icon: <Award color="#e9a227" />,
+    icon: <Award color="#F15A22" />,
     count: "98.7%",
   },
   {
     id: 4,
     name: "Students Placed",
-    icon: <TrendingUp color="#e9a227" />,
+    icon: <TrendingUp color="#F15A22" />,
     count: "10K+",
   },
 ];
@@ -33,41 +33,44 @@ const data = [
 function HeadServices() {
   return (
     <div className="lg:py-30 bg-amber-10">
-      <div className="w-300 mx-auto space-y-8">
-        <div className="w-200 space-y-4">
-          <div className="p-1 bg-[#e9a227]/5 flex gap-2 text-[#e9a227]">
+      <div className="w-full max-w-300 mx-auto px-4 space-y-8">
+        <div className="w-full max-w-200 space-y-4">
+          <div className="p-1 bg-[#F15A22]/5 flex gap-2 text-[#F15A22]">
             <Star size={18} />
             <p>Award-Winning Services</p>
           </div>
-          <h1 className="text-6xl font-bold">
+          <h1 className="text-4xl lg:text-6xl font-bold">
             Premium Services for Your <br />
-            <span className="text-[#e9a227]">International Education</span>
+            <span className="text-[#F15A22]">International Education</span>
           </h1>
-          <p className="text-neutral-500">
+          <p className="text-neutral-500 dark:text-neutral-400">
             Comprehensive, end-to-end support from university selection to
             post-arrival assistance. Our proven track record and expert guidance
             ensure your success every step of the way.
           </p>
 
           <div className="flex gap-4">
-            <button className="flex gap-2 p-2 bg-[#e9a227] text-white rounded-md">
+            <Link
+              to="/contact#book-consultation"
+              className="flex gap-2 items-center p-2 px-4 bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5 text-white rounded-md"
+            >
               <p>Book Free Consultation</p>
               <ArrowRight />
-            </button>
-            <button className="p-2 border border-neutral-300 bg-white rounded-md">
+            </Link>
+            <button className="p-2 border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 rounded-md">
               <Link to={"/"}>Back to Home</Link>
             </button>
           </div>
         </div>
-        <div className="py-10 grid grid-cols-4 gap-8">
+        <div className="py-10 grid grid-cols-2 lg:grid-cols-4 gap-8">
           {data.map((d) => (
             <div
               key={d.id}
-              className="border border-neutral-300 rounded-lg p-4 flex flex-col items-center gap-2 bg-white"
+              className="lift border border-neutral-300 dark:border-neutral-700 rounded-lg p-4 flex flex-col items-center gap-2 bg-white dark:bg-neutral-900"
             >
               <div>{d.icon}</div>
               <div className="text-3xl font-semibold">{d.count}</div>
-              <div className="text-neutral-500">{d.name}</div>
+              <div className="text-neutral-500 dark:text-neutral-400">{d.name}</div>
             </div>
           ))}
         </div>
