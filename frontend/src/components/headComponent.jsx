@@ -12,27 +12,33 @@ function HeadComponent({
   path,
 }) {
   return (
-    <div className="w-300 mx-auto lg:py-20">
+    <div className="w-full max-w-300 mx-auto px-4 py-10 lg:py-20">
       <div className="w-full space-y-4 ">
-        <div className="p-1 bg-[#e9a227]/5 flex gap-2 text-[#e9a227]">
+        <div className="p-1 bg-[#F15A22]/5 flex gap-2 text-[#F15A22]">
           {icon}
           {icontext}
         </div>
-        <h1 className="text-6xl font-bold leading-20">
+        <h1 className="text-4xl lg:text-6xl font-bold lg:leading-20">
           {title1}
           <br />
-          <span className="text-[#e9a227]">{title2}</span>
+          <span className="text-[#F15A22]">{title2}</span>
         </h1>
-        <p className="text-neutral-500">{text}</p>
+        <p className="text-neutral-500 dark:text-neutral-400">{text}</p>
 
-        <div className="flex gap-4">
-          <button className="flex gap-2 p-2 bg-[#e9a227] text-white rounded-md">
-            <Link to={path}>{button1}</Link>
+        <div className="flex flex-wrap gap-4">
+          <Link
+            to={path}
+            className="flex gap-2 items-center p-2 px-4 bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5 text-white rounded-md"
+          >
+            {button1}
             <ArrowRight />
-          </button>
-          <button className="p-2 border border-neutral-300 bg-white rounded-md">
-            <Link to={"/"}>{button2}</Link>
-          </button>
+          </Link>
+          <Link
+            to={"/"}
+            className="p-2 px-4 border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:border-[#F15A22] rounded-md"
+          >
+            {button2}
+          </Link>
         </div>
       </div>
     </div>

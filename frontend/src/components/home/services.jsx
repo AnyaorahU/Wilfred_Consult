@@ -50,31 +50,31 @@ function Services() {
   return (
     <div className="py-10 space-y-8">
       {/* title  */}
-      <div className="flex flex-col items-center w-150 mx-auto text-center p-4 space-y-2">
-        <div className="px-2 rounded-full bg-[#e9a227]/20 text-[#e9a227]">
+      <div className="flex flex-col items-center w-full max-w-150 mx-auto text-center p-4 space-y-2">
+        <div className="px-2 rounded-full bg-[#F15A22]/20 text-[#F15A22]">
           Our Services
         </div>
         <h2 className="text-3xl font-semibold">
           Everything You Need for Your Journey
         </h2>
-        <p className="text-neutral-500">
+        <p className="text-neutral-500 dark:text-neutral-400">
           From initial consultation to arrival at your destination, we provide
           comprehensive support at every step.
         </p>
       </div>
 
       {/* card  */}
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {data.map((d) => (
           <div
             key={d.id}
-            className="group p-4 border hover:border-[#e9a227] shadow-lg border-neutral-300 rounded-md space-y-2"
+            className="lift group p-4 border hover:border-[#F15A22] shadow-lg border-neutral-300 dark:border-neutral-700 rounded-md space-y-2"
           >
-            <div className="group-hover:bg-[#e9a227] bg-[#e9a227]/20 h-12 w-12 flex justify-center items-center rounded-md">
+            <div className="group-hover:bg-[#F15A22] group-hover:scale-110 transition-transform bg-[#F15A22]/20 h-12 w-12 flex justify-center items-center rounded-md">
               {d.icon}
             </div>
             <h3 className="text-lg font-semibold">{d.heading}</h3>
-            <p className="text-neutral-500">{d.info}</p>
+            <p className="text-neutral-500 dark:text-neutral-400">{d.info}</p>
           </div>
         ))}
       </div>

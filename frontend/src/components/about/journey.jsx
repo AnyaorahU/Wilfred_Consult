@@ -2,133 +2,107 @@ import {
   Award,
   ChartNoAxesColumnIncreasing,
   Globe,
-  icons,
   Rocket,
   Sparkle,
   Trophy,
   Users,
 } from "lucide-react";
 
-const datas = [
-  { icon: <Rocket size={30} /> },
-  { icon: <Trophy size={30} /> },
-  { icon: <Globe size={30} /> },
-  { icon: <Users size={30} /> },
-  { icon: <Sparkle size={30} /> },
-  { icon: <Award size={30} /> },
-  { icon: <ChartNoAxesColumnIncreasing /> },
+const milestones = [
+  {
+    year: "2008",
+    icon: <Rocket size={20} color="white" />,
+    heading: "Foundation & Vision",
+    content:
+      "Wilfred Consult was founded with a bold vision to democratize access to world-class international education",
+  },
+  {
+    year: "2012",
+    icon: <Trophy size={20} color="white" />,
+    heading: "Milestone Achievement",
+    content:
+      "Successfully placed our 500th student in prestigious universities worldwide",
+  },
+  {
+    year: "2015",
+    icon: <Globe size={20} color="white" />,
+    heading: "Global Expansion",
+    content:
+      "Established offices across 5 countries to provide localized support",
+  },
+  {
+    year: "2018",
+    icon: <Users size={20} color="white" />,
+    heading: "5,000 Students Milestone",
+    content:
+      "Celebrated placement of 5,000+ students with 97% success rate",
+  },
+  {
+    year: "2020",
+    icon: <Sparkle size={20} color="white" />,
+    heading: "Digital Innovation",
+    content:
+      "Launched cutting-edge virtual counseling platform during global transformation",
+  },
+  {
+    year: "2023",
+    icon: <Award size={20} color="white" />,
+    heading: "Industry Leadership",
+    content:
+      "Recognized as premier study abroad consultant with 10,000+ successful placements",
+  },
+  {
+    year: "2026",
+    icon: <ChartNoAxesColumnIncreasing size={20} color="white" />,
+    heading: "Excellence Sustained",
+    content:
+      "Maintaining 98.7% success rate with expanded global partnerships",
+  },
 ];
 
 export function OurJourney() {
   return (
-    <div className="py-20">
-      <div className="relative top-1/2 w-300 left-1/2 h -translate-x-1/2">
-        <div className="absolute top-0 w-full left-0 ">
-          <div className="absolute h-full -z-20 w-[1px] top-1/2 left-1/2 -translate-1/2 bg-[#e9a227]/50"></div>
-          <ul className="space-y-50 flex flex-col items-center p-26">
-            {datas.map((data, index) => (
+    <div className="w-full max-w-300 mx-auto px-4 py-10 lg:py-20">
+      <div className="relative">
+        {/* vertical spine: left on mobile, centered on desktop */}
+        <div className="absolute top-0 h-full w-[2px] bg-[#F15A22]/40 left-5 lg:left-1/2 lg:-translate-x-1/2"></div>
+
+        <ul className="space-y-10 lg:space-y-16">
+          {milestones.map((m, index) => {
+            const isLeft = index % 2 === 0;
+            const card = (
+              <div className="p-6 space-y-2 rounded-2xl bg-[#F15A22]/10 shadow-lg">
+                <p className="inline-block px-4 py-1 font-semibold text-white rounded-full bg-[#F15A22] shadow">
+                  {m.year}
+                </p>
+                <h4 className="text-2xl font-semibold">{m.heading}</h4>
+                <p className="text-neutral-500 dark:text-neutral-400 text-lg">{m.content}</p>
+              </div>
+            );
+            return (
               <li
-                key={index}
-                className="p-6 bg-[#e9a227] rounded-full shadow-lg"
+                key={m.year}
+                className="relative flex flex-col lg:flex-row lg:items-center"
               >
-                {data.icon}
+                {/* node */}
+                <div className="absolute z-10 w-10 h-10 grid place-items-center bg-[#F15A22] rounded-full shadow-lg left-5 -translate-x-1/2 top-6 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2">
+                  {m.icon}
+                </div>
+
+                {/* card — full width on mobile (offset past the spine), half width alternating on desktop */}
+                <div
+                  className={`pl-16 lg:pl-0 lg:w-1/2 ${
+                    isLeft
+                      ? "lg:pr-12 lg:text-right"
+                      : "lg:ml-auto lg:pl-12 lg:text-left"
+                  }`}
+                >
+                  {card}
+                </div>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="top-0 w-full flex flex-col space-y-19">
-          <div className="self-start w-2/5 flex flex-col items-end space-y-4">
-            <p className="p-2 px-4 font-semibold text-white rounded-full bg-[#e9a227] shadow-lg">
-              2008
-            </p>
-            <div className="text-right p-6 space-y-2 rounded-2xl bg-[#e9a227]/10 shadow-lg">
-              <h4 className="text-2xl font-semibold">Foundation & Vision</h4>
-              <p className="text-neutral-500 text-lg">
-                EduVoyage was founded with a bold vision to democratize access
-                to world-class international education
-              </p>
-            </div>
-          </div>
-
-          <div className="self-end w-2/5 flex flex-col items-start space-y-4">
-            <p className="p-2 px-4 font-semibold text-white rounded-full bg-[#e9a227] shadow-lg">
-              2012
-            </p>
-            <div className="text-left p-6 space-y-2 rounded-2xl bg-[#e9a227]/10 shadow-lg">
-              <h4 className="text-2xl font-semibold">Milestone Achievement</h4>
-              <p className="text-neutral-500 text-lg">
-                Successfully placed our 500th student in prestigious
-                universities worldwide
-              </p>
-            </div>
-          </div>
-
-          <div className="self-start w-2/5 flex flex-col items-end space-y-4">
-            <p className="p-2 px-4 font-semibold text-white rounded-full bg-[#e9a227] shadow-lg">
-              2015
-            </p>
-            <div className="text-right p-6 space-y-2 rounded-2xl bg-[#e9a227]/10 shadow-lg">
-              <h4 className="text-2xl font-semibold">Global Expansion</h4>
-              <p className="text-neutral-500 text-lg">
-                Established offices across 5 countries to provide localized
-                support
-              </p>
-            </div>
-          </div>
-
-          <div className="self-end w-2/5 flex flex-col items-start space-y-4">
-            <p className="p-2 px-4 font-semibold text-white rounded-full bg-[#e9a227] shadow-lg">
-              2018
-            </p>
-            <div className="text-left p-6 space-y-2 rounded-2xl bg-[#e9a227]/10 shadow-lg">
-              <h4 className="text-2xl font-semibold">
-                5,000 Students Milestone
-              </h4>
-              <p className="text-neutral-500 text-lg">
-                Celebrated placement of 5,000+ students with 97% success rate
-              </p>
-            </div>
-          </div>
-
-          <div className="self-start w-2/5 flex flex-col items-end space-y-4">
-            <p className="p-2 px-4 font-semibold text-white rounded-full bg-[#e9a227] shadow-lg">
-              2020
-            </p>
-            <div className="text-right p-6 space-y-2 rounded-2xl bg-[#e9a227]/10 shadow-lg">
-              <h4 className="text-2xl font-semibold">Digital Innovation</h4>
-              <p className="text-neutral-500 text-lg">
-                Launched cutting-edge virtual counseling platform during global
-                transformation
-              </p>
-            </div>
-          </div>
-
-          <div className="self-end w-2/5 flex flex-col items-start space-y-4">
-            <p className="p-2 px-4 font-semibold text-white rounded-full bg-[#e9a227] shadow-lg">
-              2023
-            </p>
-            <div className="text-left p-6 space-y-2 rounded-2xl bg-[#e9a227]/10 shadow-lg">
-              <h4 className="text-2xl font-semibold">Industry Leadership</h4>
-              <p className="text-neutral-500 text-lg">
-                Recognized as premier study abroad consultant with 10,000+
-                successful placements
-              </p>
-            </div>
-          </div>
-
-          <div className="self-start w-2/5 flex flex-col items-end space-y-4">
-            <p className="p-2 px-4 font-semibold text-white rounded-full bg-[#e9a227] shadow-lg">
-              2026
-            </p>
-            <div className="text-right p-6 space-y-2 rounded-2xl bg-[#e9a227]/10 shadow-lg">
-              <h4 className="text-2xl font-semibold">Excellence Sustained</h4>
-              <p className="text-neutral-500 text-lg">
-                Maintaining 98.7% success rate with expanded global partnerships
-              </p>
-            </div>
-          </div>
-        </div>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );

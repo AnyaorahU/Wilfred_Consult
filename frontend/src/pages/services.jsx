@@ -5,18 +5,31 @@ import HeadServices from "../components/services/head";
 import OurServices from "../components/services/our-services";
 import Packages from "../components/services/packages";
 import ProcessSteps from "../components/services/processSteps";
+import Reveal from "../components/reveal";
 
 function Services() {
   return (
     <div>
       <HeadServices />
-      <div className="mx-auto w-300 lg:space-y-20">
-        <OurServices />
-        <ProcessSteps />
-        <Packages />
-        <Faq />
-        <Guarantee />
-        <FinalCta />
+      <div className="w-full max-w-300 mx-auto px-4 lg:space-y-20">
+        <Reveal>
+          <OurServices />
+        </Reveal>
+        <Reveal>
+          <ProcessSteps />
+        </Reveal>
+        <Reveal>
+          <Packages />
+        </Reveal>
+        <Reveal>
+          <Faq />
+        </Reveal>
+        <Reveal>
+          <Guarantee />
+        </Reveal>
+        <Reveal>
+          <FinalCta />
+        </Reveal>
       </div>
     </div>
   );

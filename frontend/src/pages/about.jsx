@@ -6,11 +6,12 @@ import { OurJourney } from "../components/about/journey";
 import { CoreValue } from "../components/about/core.value";
 import { WhyUs } from "../components/about/why.chose.us";
 import { AboutCTA } from "../components/about/cta.section";
+import Reveal from "../components/reveal";
 
 function About() {
   return (
     <div>
-      <div className="py-20 w-300 mx-auto">
+      <div className="py-10 lg:py-20 w-full max-w-300 mx-auto px-4">
         <HeadComponent
           icontext={"Transforming Lives Since 2008"}
           title1={"Empowering Dreams Through"}
@@ -18,38 +19,38 @@ function About() {
           text={
             "A legacy of excellence spanning 15+ years, with 10,000+ successful placements and partnerships with 250+ world-renowned universities across 25+ countries."
           }
-          path={""}
+          path={"/contact#book-consultation"}
           button1={"Join Our Success Story"}
           button2={"Return Home"}
           icon={<Award size={16} />}
         />
 
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              text: "STUDENT PLACED",
-              value: "10,00+",
-              icon: <Users size={30} color="#e9a227" />,
+              text: "STUDENTS PLACED",
+              value: "10,000+",
+              icon: <Users size={30} color="#F15A22" />,
             },
             {
               text: "COUNTRIES",
               value: "25+",
-              icon: <Globe size={30} color="#e9a227" />,
+              icon: <Globe size={30} color="#F15A22" />,
             },
             {
-              text: "PARTNER UNIVERSITES",
+              text: "PARTNER UNIVERSITIES",
               value: "250+",
-              icon: <Backpack size={30} color="#e9a227" />,
+              icon: <Backpack size={30} color="#F15A22" />,
             },
             {
               text: "SUCCESS RATE",
               value: "98.7%",
-              icon: <Star size={30} color="#e9a227" />,
+              icon: <Star size={30} color="#F15A22" />,
             },
           ].map((item, index) => (
             <div
               key={index}
-              className="p-4 border border-neutral-200 space-y-4 rounded-lg bg-white hover:shadow-lg"
+              className="lift p-4 border border-neutral-200 dark:border-neutral-800 space-y-4 rounded-lg bg-white dark:bg-neutral-900 hover:shadow-lg hover:border-[#F15A22]/40"
             >
               <div>{item.icon}</div>
               <p className="text-4xl font-bold">{item.value}</p>
@@ -58,8 +59,8 @@ function About() {
           ))}
         </div>
       </div>
-      <div>
-        <div className="py-20 w-300 mx-auto grid grid-cols-2 gap-8">
+      <Reveal>
+        <div className="py-10 lg:py-20 w-full max-w-300 mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
           <MissionVision
             icon={<Target />}
             heading={"Our Mission"}
@@ -75,8 +76,8 @@ function About() {
             }
           />
         </div>
-      </div>
-      <div>
+      </Reveal>
+      <Reveal>
         <Title
           text1={"Our"}
           text2={" Journey of Excellence"}
@@ -85,18 +86,18 @@ function About() {
           }
         />
         <OurJourney />
-      </div>
+      </Reveal>
 
-      <div>
+      <Reveal>
         <CoreValue />
-      </div>
-      <div>
+      </Reveal>
+      <Reveal>
         <WhyUs />
-      </div>
+      </Reveal>
 
-      <div>
+      <Reveal>
         <AboutCTA />
-      </div>
+      </Reveal>
     </div>
   );
 }

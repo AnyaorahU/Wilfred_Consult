@@ -4,7 +4,7 @@ import Title from "../title";
 function Guarantee() {
   return (
     <div className="py-20">
-      <div className="flex flex-col gap-4 items-center p-10 bg-[#e9a227]/10 rounded-lg w-300 mx-auto">
+      <div className="flex flex-col gap-4 items-center p-6 lg:p-10 bg-[#F15A22]/10 rounded-lg w-full max-w-300 mx-auto">
         <Shield size={70} />
         <Title
           text1={"Our"}
@@ -14,19 +14,19 @@ function Guarantee() {
           }
         />
 
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {[
-            { icon: <Award color="#e9a227" />, text: "15+ Years Experience" },
+            { icon: <Award color="#F15A22" />, text: "15+ Years Experience" },
             {
-              icon: <Shield color="#e9a227" />,
+              icon: <Shield color="#F15A22" />,
               text: "100% Transparent Pricing",
             },
             {
-              icon: <CheckCircle2 color="#e9a227" />,
+              icon: <CheckCircle2 color="#F15A22" />,
               text: "Satisfaction Guaranteed",
             },
           ].map((item, index) => (
-            <div className="p-2 flex gap-2 bg-white">
+            <div key={index} className="p-2 flex gap-2 bg-white dark:bg-neutral-900">
               {item.icon} {item.text}
             </div>
           ))}
