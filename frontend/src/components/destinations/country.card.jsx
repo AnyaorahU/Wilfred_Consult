@@ -96,7 +96,11 @@ export function CountryCard({ destination }) {
         </div>
 
         <div className="w-full p-2 flex items-center justify-center gap-2 rounded-2xl bg-[#F15A22] text-white font-semibold">
-          View Full Details <ArrowRight size={18} />
+          View Full Details{" "}
+          <ArrowRight
+            size={18}
+            className="transition-transform group-hover:translate-x-1"
+          />
         </div>
       </div>
     </Link>

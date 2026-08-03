@@ -55,10 +55,11 @@ function Packages() {
   return (
     <div className="lg:space-y-20 py-10">
       <Title
+        eyebrow={"Pricing & Plans"}
         text1={" Choose Your"}
         text2={"Perfect Package"}
         subtext={
-          " A proven 6-step process that has helped thousands achieve their dreams"
+          "Transparent, all-inclusive pricing with no hidden fees — choose the level of support that fits your goals and budget."
         }
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

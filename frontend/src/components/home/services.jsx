@@ -4,8 +4,10 @@ import {
   Headset,
   MapPin,
   Plane,
+  Sparkles,
   Users,
 } from "lucide-react";
+import Eyebrow from "../eyebrow";
 
 const data = [
   {
@@ -51,9 +53,7 @@ function Services() {
     <div className="py-10 space-y-8">
       {/* title  */}
       <div className="flex flex-col items-center w-full max-w-150 mx-auto text-center p-4 space-y-2">
-        <div className="px-2 rounded-full bg-[#F15A22]/20 text-[#F15A22]">
-          Our Services
-        </div>
+        <Eyebrow icon={<Sparkles size={14} />}>Our Services</Eyebrow>
         <h2 className="text-3xl font-semibold">
           Everything You Need for Your Journey
         </h2>

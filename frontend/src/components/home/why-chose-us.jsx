@@ -1,5 +1,6 @@
 import { Award, Globe, Headphones, Shield, Timer, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import Eyebrow from "../eyebrow";
 
 const data = [
   {
@@ -44,6 +45,7 @@ function WhyChoseUs() {
   return (
     <div className="py-10 space-y-8">
       <div className="flex flex-col items-center w-full max-w-150 mx-auto text-center p-4 space-y-2">
+        <Eyebrow icon={<Award size={14} />}>Our Advantage</Eyebrow>
         <h2 className="text-3xl font-semibold">Why Choose Us</h2>
         <p className="text-neutral-500 dark:text-neutral-400">
           We're more than just consultants, we're your partners in building a

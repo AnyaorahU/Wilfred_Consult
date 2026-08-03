@@ -45,9 +45,11 @@ export function CoreCard() {
       {values.map((item, index) => (
         <div
           key={index}
-          className="lift flex flex-col items-start space-y-4 p-4 border border-neutral-300 dark:border-neutral-700 shadow-lg rounded-2xl hover:border-[#F15A22]"
+          className="lift group flex flex-col items-start space-y-4 p-4 border border-neutral-300 dark:border-neutral-700 shadow-lg rounded-2xl hover:border-[#F15A22]"
         >
-          <div className="p-4 bg-[#F15A22]/20 rounded-2xl">{item.icon}</div>
+          <div className="p-4 bg-[#F15A22]/20 rounded-2xl transition-transform group-hover:scale-110 group-hover:bg-[#F15A22]/30">
+            {item.icon}
+          </div>
           <h4 className="text-2xl font-bold">{item.heading}</h4>
           <p className="text-neutral-500 dark:text-neutral-400">{item.context}</p>
         </div>

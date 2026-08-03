@@ -420,9 +420,13 @@ function DestinationDetail() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               to="/contact#book-consultation"
-              className="flex items-center justify-center gap-2 py-3 px-6 bg-[#F15A22] text-white font-semibold rounded-2xl hover:bg-[#C9410F] hover:-translate-y-0.5"
+              className="group flex items-center justify-center gap-2 py-3 px-6 bg-[#F15A22] text-white font-semibold rounded-2xl hover:bg-[#C9410F] hover:-translate-y-0.5"
             >
-              Book Free Consultation <ArrowRight size={18} />
+              Book Free Consultation{" "}
+              <ArrowRight
+                size={18}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </Link>
             <Link
               to="/destinations"

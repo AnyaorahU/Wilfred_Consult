@@ -18,9 +18,10 @@ export function AboutCTA() {
       <div className="flex flex-wrap justify-center gap-4">
         <Link
           to="/contact#book-consultation"
-          className="flex gap-2 items-center text-lg py-3 px-6 rounded-2xl bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5 text-white cursor-pointer"
+          className="group flex gap-2 items-center text-lg py-3 px-6 rounded-2xl bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5 text-white cursor-pointer"
         >
-          Book Free Consultation <MoveRight />
+          Book Free Consultation{" "}
+          <MoveRight className="transition-transform group-hover:translate-x-1" />
         </Link>
         <Link
           to="/services"

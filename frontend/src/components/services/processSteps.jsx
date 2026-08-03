@@ -44,6 +44,7 @@ function ProcessSteps() {
   return (
     <div className="lg:space-y-20 py-10">
       <Title
+        eyebrow={"How It Works"}
         text1={"Your Journey"}
         text2={"Simplified"}
         subtext={

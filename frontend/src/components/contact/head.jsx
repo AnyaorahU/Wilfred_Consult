@@ -32,7 +32,7 @@ export function ContactHead() {
   return (
     <div className="w-full max-w-300 mx-auto px-4 py-10 lg:py-20 space-y-10">
       <div className="w-full space-y-4">
-        <div className="p-1 bg-[#F15A22]/5 flex gap-2 text-[#F15A22]">
+        <div className="inline-flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-[#F15A22]/10 text-[#F15A22] text-sm font-semibold">
           <MessageSquare size={16} />
           <p>Free Consultation — No Obligation</p>
         </div>

@@ -44,6 +44,7 @@ function Faq() {
   return (
     <div className="space-y-20 py-20">
       <Title
+        eyebrow={"FAQ"}
         text1={"Frequently Asked"}
         text2={"Questions"}
         subtext={

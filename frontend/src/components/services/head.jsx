@@ -32,11 +32,11 @@ const data = [
 
 function HeadServices() {
   return (
-    <div className="lg:py-30 bg-amber-10">
+    <div className="lg:py-30">
       <div className="w-full max-w-300 mx-auto px-4 space-y-8">
         <div className="w-full max-w-200 space-y-4">
-          <div className="p-1 bg-[#F15A22]/5 flex gap-2 text-[#F15A22]">
-            <Star size={18} />
+          <div className="inline-flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-[#F15A22]/10 text-[#F15A22] text-sm font-semibold">
+            <Star size={16} />
             <p>Award-Winning Services</p>
           </div>
           <h1 className="text-4xl lg:text-6xl font-bold">
@@ -52,10 +52,10 @@ function HeadServices() {
           <div className="flex gap-4">
             <Link
               to="/contact#book-consultation"
-              className="flex gap-2 items-center p-2 px-4 bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5 text-white rounded-md"
+              className="group flex gap-2 items-center p-2 px-4 bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5 text-white rounded-md"
             >
               <p>Book Free Consultation</p>
-              <ArrowRight />
+              <ArrowRight className="transition-transform group-hover:translate-x-1" />
             </Link>
             <button className="p-2 border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 rounded-md">
               <Link to={"/"}>Back to Home</Link>

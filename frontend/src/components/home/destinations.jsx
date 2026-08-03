@@ -1,10 +1,12 @@
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Globe, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { destinations } from "../../data/destinations";
+import Eyebrow from "../eyebrow";
 
 const data = [
   {
     id: 1,
+    slug: "united-states",
     categories: "Top Choice",
     image: "/unitedstates.jpg",
     country: "United States",
@@ -14,6 +16,7 @@ const data = [
   },
   {
     id: 2,
+    slug: "united-kingdom",
     categories: "Popular",
     image: "/unitedkingdom.jpg",
     country: "United Kingdom",
@@ -23,6 +26,7 @@ const data = [
   },
   {
     id: 3,
+    slug: "canada",
     categories: "Affordable",
     image: "/canada.jpg",
     country: "Canada",
@@ -32,13 +36,17 @@ const data = [
   },
 ];
 
+// Countries shown as the 3 featured cards above — excluded from "Other Countries".
+const featuredSlugs = data.map((d) => d.slug);
+const otherCountries = destinations.filter(
+  (d) => !featuredSlugs.includes(d.slug),
+);
+
 function Destinations() {
   return (
     <div className="py-10 px-4 border-r-2 border-t-2 border-l-2 rounded-4xl border-[#F15A22] lg:p-14 space-y-8">
       <div className="flex flex-col items-center w-full max-w-150 mx-auto text-center p-4 space-y-2">
-        <div className="px-2 rounded-full bg-[#F15A22]/10 text-[#F15A22]">
-          Top Destinations
-        </div>
+        <Eyebrow icon={<Globe size={14} />}>Top Destinations</Eyebrow>
         <h2 className="text-3xl font-semibold">
           Discover Your Dream Destination
         </h2>
@@ -69,28 +77,41 @@ function Destinations() {
               </div>
               <p className="text-neutral-500 dark:text-neutral-400">{d.university} Universities</p>
               <p className="text-neutral-500 dark:text-neutral-400">{d.course}</p>
-              <button className="border w-full p-1 flex gap-2 items-center justify-center border-[#F15A22]/50 rounded-md hover:bg-[#F15A22]">
+              <Link
+                to={`/destinations/${d.slug}`}
+                className="border w-full p-1 flex gap-2 items-center justify-center border-[#F15A22]/50 rounded-md hover:bg-[#F15A22] hover:text-white"
+              >
                 Learn more <ArrowRight size={18} />
-              </button>
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="py-4">
-        <h4 className="text-xl text-[#F15A22] font-semibold text-center underline text-shadow-2xs">
-          Other Countries
+      <div className="text-center space-y-1 pt-4">
+        <h4 className="text-2xl font-bold">
+          Explore More <span className="text-[#F15A22]">Countries</span>
         </h4>
+        <p className="text-neutral-500 dark:text-neutral-400">
+          More world-class study destinations to discover
+        </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
-        {destinations.map((d) => (
+      <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
+        {otherCountries.map((d) => (
           <Link
             key={d.slug}
             to={`/destinations/${d.slug}`}
-            className="flex items-center gap-2 border border-[#F15A22] rounded-md p-2 px-4 hover:bg-[#F15A22] hover:text-white transition-colors"
+            className="group flex items-center gap-3 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-full pl-2 pr-5 py-2 shadow-sm hover:shadow-md hover:border-[#F15A22]/50 hover:-translate-y-0.5 transition-all"
           >
-            <span className="text-lg">{d.flag}</span> {d.name}
+            <span className="grid place-items-center h-9 w-9 rounded-full bg-[#F15A22]/10 text-xl">
+              {d.flag}
+            </span>
+            <span className="font-semibold">{d.name}</span>
+            <ArrowRight
+              size={16}
+              className="text-[#F15A22] w-0 opacity-0 group-hover:w-4 group-hover:opacity-100 transition-all duration-300"
+            />
           </Link>
         ))}
       </div>

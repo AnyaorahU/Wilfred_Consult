@@ -1,33 +1,15 @@
 import { Quote, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import Eyebrow from "../eyebrow";
+import { testimonials, initials } from "../../data/testimonials";
 
-const data = [
-  {
-    id: 1,
-    note: `"Wilfred Consult made my dream of studying in London a reality. Their team guided me through every step, from university selection to visa approval. I couldn't have done it without them!"`,
-    name: "Sarah Johnson",
-    study: "MBA Graduate, London",
-  },
-  {
-    id: 2,
-    note: `"The educational tour to Canada was incredible! Not only did I get to visit potential universities, but I also experienced the culture and made lifelong friends. Highly recommended!"`,
-    name: "Michael Chen",
-    study: "Engineering Student, Toronto",
-  },
-  {
-    id: 3,
-    note: `"Their 24/7 support was a game-changer. Even when I had issues settling in Australia, they were just a call away. Professional, caring, and truly invested in student success."`,
-    name: "Pria Patel",
-    study: "Medical Student, Melbourne",
-  },
-];
+const featured = testimonials.slice(0, 3);
 
 function Testimonial() {
   return (
     <div className="py-10 space-y-8">
       <div className="flex flex-col items-center w-full max-w-150 mx-auto text-center p-4 space-y-2">
-        <div className="px-2 rounded-full bg-[#F15A22]/10 text-[#F15A22]">
-          Testimonials
-        </div>
+        <Eyebrow icon={<Star size={14} fill="#F15A22" />}>Testimonials</Eyebrow>
         <h2 className="text-3xl font-semibold">What Our Students Say</h2>
         <p className="text-neutral-500 dark:text-neutral-400">
           Hear from students who have successfully embarked on their
@@ -35,34 +17,49 @@ function Testimonial() {
         </p>
       </div>
 
-      {/* card  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-        {data.map((d) => (
+      {/* cards  */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featured.map((t, i) => (
           <div
-            key={d.id}
-            className="lift p-4 border rounded-2xl space-y-4 border-neutral-300 dark:border-neutral-700 hover:shadow-lg"
+            key={i}
+            className="lift flex flex-col gap-4 p-6 border border-neutral-200 dark:border-neutral-800 rounded-2xl bg-white dark:bg-neutral-900 hover:border-[#F15A22]/40"
           >
-            <div>
-              <Quote color="#F15A22" size={30} />
+            <Quote color="#F15A22" size={30} />
+            <div className="flex gap-1">
+              {Array.from({ length: t.rating }).map((_, s) => (
+                <Star key={s} size={16} color="#F15A22" fill="#F15A22" />
+              ))}
             </div>
-            <div className="flex gap-2">
-              <Star color="#F15A22" size={18} />
-              <Star color="#F15A22" size={18} />
-              <Star color="#F15A22" size={18} />
-              <Star color="#F15A22" size={18} />
-              <Star color="#F15A22" size={18} />
-            </div>
-            <p>{d.note}</p>
-
-            <div className="flex gap-4">
-              <div className="h-10 w-10 rounded-full shadow-lg bg-[#F15A22]/20"></div>
+            <p className="text-neutral-600 dark:text-neutral-300 flex-1">
+              {t.note}
+            </p>
+            <div className="flex gap-3 items-center pt-4 border-t border-neutral-100 dark:border-neutral-800">
+              <div className="h-11 w-11 shrink-0 grid place-items-center rounded-full bg-[#F15A22]/10 text-[#F15A22] font-bold">
+                {initials(t.name)}
+              </div>
               <div>
-                <p className="font-semibold">{d.name}</p>
-                <p className="text-neutral-500 dark:text-neutral-400">{d.study}</p>
+                <p className="font-semibold">{t.name}</p>
+                <p className="text-sm text-neutral-500 dark:text-neutral-400">
+                  {t.program} · {t.flag} {t.country}
+                </p>
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center">
+        <Link
+          to="/testimonials"
+          className="group inline-flex items-center gap-2 py-2.5 px-6 border border-[#F15A22] text-[#F15A22] font-semibold rounded-full hover:bg-[#F15A22] hover:text-white transition-colors"
+        >
+          Read More Stories
+          <Star
+            size={16}
+            fill="currentColor"
+            className="transition-transform group-hover:scale-110"
+          />
+        </Link>
       </div>
     </div>
   );

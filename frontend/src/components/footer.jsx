@@ -87,7 +87,11 @@ function Footer() {
           <p className="font-semibold">Quick Links</p>
           <div className="gap-2 flex flex-col text-neutral-500 dark:text-neutral-400">
             {quickLink.map((q) => (
-              <Link key={q.id} to={q.path} className="hover:text-[#F15A22]">
+              <Link
+                key={q.id}
+                to={q.path}
+                className="inline-block w-fit hover:text-[#F15A22] hover:translate-x-1 transition-transform"
+              >
                 {q.name}
               </Link>
             ))}
@@ -98,7 +102,11 @@ function Footer() {
           <p className="font-semibold">Services</p>
           <div className="gap-2 flex flex-col text-neutral-500 dark:text-neutral-400">
             {service.map((q) => (
-              <Link key={q.id} to={q.path} className="hover:text-[#F15A22]">
+              <Link
+                key={q.id}
+                to={q.path}
+                className="inline-block w-fit hover:text-[#F15A22] hover:translate-x-1 transition-transform"
+              >
                 {q.name}
               </Link>
             ))}

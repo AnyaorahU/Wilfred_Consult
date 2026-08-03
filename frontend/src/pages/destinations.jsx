@@ -68,6 +68,7 @@ function Destinations() {
 
       <Reveal className="space-y-10 w-full max-w-300 mx-auto px-4 py-10 lg:py-20 block">
         <Title
+          eyebrow={"Explore"}
           text1={"Premium Study"}
           text2={"Destinations"}
           subtext={

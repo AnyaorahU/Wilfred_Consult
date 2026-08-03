@@ -14,7 +14,7 @@ function HeadComponent({
   return (
     <div className="w-full max-w-300 mx-auto px-4 py-10 lg:py-20">
       <div className="w-full space-y-4 ">
-        <div className="p-1 bg-[#F15A22]/5 flex gap-2 text-[#F15A22]">
+        <div className="inline-flex w-fit items-center gap-2 px-3 py-1 rounded-full bg-[#F15A22]/10 text-[#F15A22] text-sm font-semibold">
           {icon}
           {icontext}
         </div>
@@ -28,10 +28,10 @@ function HeadComponent({
         <div className="flex flex-wrap gap-4">
           <Link
             to={path}
-            className="flex gap-2 items-center p-2 px-4 bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5 text-white rounded-md"
+            className="group flex gap-2 items-center p-2 px-4 bg-[#F15A22] hover:bg-[#C9410F] hover:-translate-y-0.5 text-white rounded-md"
           >
             {button1}
-            <ArrowRight />
+            <ArrowRight className="transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             to={"/"}

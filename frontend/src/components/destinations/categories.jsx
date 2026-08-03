@@ -31,10 +31,10 @@ function Categories({ active, onChange }) {
             type="button"
             onClick={() => onChange(item.value)}
             aria-pressed={isActive}
-            className={`flex gap-3 items-center py-2.5 px-4 rounded-xl border font-semibold transition-colors ${
+            className={`flex gap-3 items-center py-2.5 px-5 rounded-full border font-semibold transition-all hover:-translate-y-0.5 ${
               isActive
                 ? "bg-[#F15A22] text-white border-[#F15A22] shadow-lg"
-                : "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 hover:border-[#F15A22]"
+                : "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md hover:border-[#F15A22]"
             }`}
           >
             {regionIcons[item.name]}

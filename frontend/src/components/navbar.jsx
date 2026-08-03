@@ -8,7 +8,7 @@ const navData = [
   { id: 2, name: "Services", path: "/services" },
   { id: 3, name: "Destinations", path: "/destinations" },
   { id: 4, name: "About Us", path: "/about-us" },
-  // { id: 5, name: "Testimonials", path: "/testimonials" },
+  { id: 5, name: "Testimonials", path: "/testimonials" },
   { id: 6, name: "Contact", path: "/contact" },
 ];
 

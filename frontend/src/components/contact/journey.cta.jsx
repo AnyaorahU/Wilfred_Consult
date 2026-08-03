@@ -16,9 +16,13 @@ export function JourneyCTA() {
         <div className="flex flex-col sm:flex-row gap-4">
           <a
             href="#book-consultation"
-            className="flex items-center justify-center gap-2 py-3 px-6 bg-[#F15A22] text-white font-semibold rounded-2xl hover:bg-[#F15A22]/90 cursor-pointer"
+            className="group flex items-center justify-center gap-2 py-3 px-6 bg-[#F15A22] text-white font-semibold rounded-2xl hover:bg-[#C9410F] hover:-translate-y-0.5 cursor-pointer"
           >
-            Book Free Consultation <ArrowRight size={18} />
+            Book Free Consultation{" "}
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
           </a>
           <button className="py-3 px-6 border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 font-semibold rounded-2xl hover:border-[#F15A22] cursor-pointer">
             <Link to={"/destinations"}>Explore Destinations</Link>
